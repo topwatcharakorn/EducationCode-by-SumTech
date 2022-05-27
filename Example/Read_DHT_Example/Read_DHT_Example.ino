@@ -1,4 +1,4 @@
-//Example Code EP 1: READ DHT 11/22
+//Example Code EP 2: READ DHT 11/22
 // Summation Technology 
 
 #include <dht.h>  // INCLUDE Library ของตัว DHT.H

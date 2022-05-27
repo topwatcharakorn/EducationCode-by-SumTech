@@ -1,4 +1,4 @@
-//Example Code EP 2: OLED 0.96' I2C
+//Example Code EP 4: OLED 0.96' I2C
 // Summation Technology 
 
 #include <SPI.h>

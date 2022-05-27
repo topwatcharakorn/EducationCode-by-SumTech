@@ -1,13 +1,14 @@
-//Example Code EP 3: Input Button -> Output LED
+//Example Code EP 5: Input Switch&Output LED 
 // Summation Technology 
 
-int led1 = ; // กำหนดขาหรือ GPIO ให้กับ แต่ละ LED
-int buttonPin = ; // กำหนดขา หรือ GPIO ให้กับ Button
+int led1 = 2; // กำหนดขาใช้งานของหลอด LED
+
+int buttonPin = 3;  // กำหนดขาใช้งานของ Switch
 int buttonState = 0;
 void setup()
 {
-pinMode(led1, OUTPUT); // กำหนดขาทำหน้าที่ให้ขา LED เป็น OUTPUT
-pinMode(buttonPin, INPUT);// กำหนดขาทำหน้าที่ให้ขา Button เป็น INPUT รับค่าจากสวิตช์
+pinMode(led1, OUTPUT); // กำหนดขาทำหน้าที่ให้ขา 2 เป็น OUTPUT
+pinMode(buttonPin, INPUT);// กำหนดขาทำหน้าที่ให้ขา 3 เป็น INPUT รับค่าจากสวิตช์
 digitalWrite(led1, LOW);
 }
 void loop()
