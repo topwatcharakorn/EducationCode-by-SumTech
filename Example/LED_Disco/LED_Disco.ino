@@ -1,27 +1,29 @@
 //Example Code EP 7: LED Disco
 // Summation Technology 
-
+#define LED1
+#define LED2
+#define LED3
 void setup() 
 {
-  pinMode(, OUTPUT); 
-  pinMode(, OUTPUT);
-  pinMode(, OUTPUT);
+  pinMode(LED1, OUTPUT); 
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
 }
  
 void loop() 
 {
-  digitalWrite(, HIGH);
+  digitalWrite(LED1, HIGH);
   delay(500);
-  digitalWrite(, LOW);
-  delay(500);
- 
-  digitalWrite(, HIGH);
-  delay(500);
-  digitalWrite(, LOW);
+  digitalWrite(LED1, LOW);
   delay(500);
  
-  digitalWrite(, HIGH);
+  digitalWrite(LED2, HIGH);
   delay(500);
-  digitalWrite(, LOW);
+  digitalWrite(LED2, LOW);
+  delay(500);
+ 
+  digitalWrite(LED3, HIGH);
+  delay(500);
+  digitalWrite(LED3, LOW);
   delay(500);
 }
