@@ -1,16 +1,15 @@
 //Example Code EP 19: Control buzzer Module
 // Summation Technology 
 
+#define BUZZER_PIN 27
 
-const int buzzer = 9; 
-
-void setup(){
-  pinMode(buzzer, OUTPUT); 
+void setup() {
+  pinMode(BUZZER_PIN,OUTPUT);
 }
 
-void loop(){
-  tone(buzzer, 1000); // Send 1KHz sound signal...
-  delay(1000);        // ...for 1 sec
-  noTone(buzzer);     // Stop sound...
-  delay(1000);        // ...for 1sec
+void loop() {
+  digitalWrite(BUZZER_PIN,HIGH);   //ปิดเสียงเตือน
+  delay(1000);
+  digitalWrite(BUZZER_PIN,LOW);    //เปิดเสียงเตือน
+  delay(1000);
 }
