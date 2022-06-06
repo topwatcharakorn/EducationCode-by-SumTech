@@ -1,63 +1,75 @@
 //Example Code EP 1: Read DHT22 Show Display O'LED 0.96'
 // Summation Technology 
 
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <Adafruit_Sensor.h>
+#include <DHT.h>
 
-#include <Arduino.h>
-#include <U8g2lib.h>
-#include "DHT.h"
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 64 // OLED display height, in pixels
 
-#define DHTPIN 2     
-#define DHTTYPE DHT22   
+// Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+
+#define DHTPIN 4     // Digital pin connected to the DHT sensor
+
+// Uncomment the type of sensor in use:
+//#define DHTTYPE    DHT11     // DHT 11
+#define DHTTYPE    DHT22     // DHT 22 (AM2302)
+//#define DHTTYPE    DHT21     // DHT 21 (AM2301)
+
 DHT dht(DHTPIN, DHTTYPE);
 
-#ifdef U8X8_HAVE_HW_SPI
-#include <SPI.h>
-#endif
-#ifdef U8X8_HAVE_HW_I2C
-#include <Wire.h>
-#endif
+void setup() {
+  Serial.begin(115200);
 
-
-  U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
-
-void draw(void) {
-
-  float h = dht.readHumidity();
-
-  float t = dht.readTemperature();
-
-  float f = dht.readTemperature(true);
-
-  u8g2.setFont(u8g2_font_helvB10_tf);
-  u8g2.setCursor(0, 16);
-  u8g2.print("Temp & Humidity");
-  u8g2.setFont(u8g2_font_helvB18_tf);
-  u8g2.setCursor(0, 42);
-  u8g2.print("T= "); u8g2.print(t); u8g2.print(" *C");
-  u8g2.setCursor(0, 64);
-  u8g2.print("H= "); u8g2.print(h); u8g2.print(" %");
-}
-
-void setup(void) {
-  
   dht.begin();
 
-  u8g2.begin();  
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("SSD1306 allocation failed"));
+    for(;;);
+  }
+  delay(2000);
+  display.clearDisplay();
+  display.setTextColor(WHITE);
 }
 
-void loop(void) {
+void loop() {
+  delay(5000);
 
-
-  delay(2000);
-
-
-  float h = dht.readHumidity();
-
+  //read temperature and humidity
   float t = dht.readTemperature();
+  float h = dht.readHumidity();
+  if (isnan(h) || isnan(t)) {
+    Serial.println("Failed to read from DHT sensor!");
+  }
+  // clear display
+  display.clearDisplay();
   
-  u8g2.firstPage();
-  do {
-    draw();
-  } while ( u8g2.nextPage() );
-  delay(1000);
+  // display temperature
+  display.setTextSize(1);
+  display.setCursor(0,0);
+  display.print("Temperature: ");
+  display.setTextSize(2);
+  display.setCursor(0,10);
+  display.print(t);
+  display.print(" ");
+  display.setTextSize(1);
+  display.cp437(true);
+  display.write(167);
+  display.setTextSize(2);
+  display.print("C");
+  
+  // display humidity
+  display.setTextSize(1);
+  display.setCursor(0, 35);
+  display.print("Humidity: ");
+  display.setTextSize(2);
+  display.setCursor(0, 45);
+  display.print(h);
+  display.print(" %"); 
+  
+  display.display(); 
 }
