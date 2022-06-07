@@ -1,7 +1,7 @@
 //Example Code EP 18: Control Relay Module
 // Summation Technology 
 
-int Relay1 = ; 
+int Relay1 = 27; 
 void setup()
 {
 pinMode(Relay1, OUTPUT);
