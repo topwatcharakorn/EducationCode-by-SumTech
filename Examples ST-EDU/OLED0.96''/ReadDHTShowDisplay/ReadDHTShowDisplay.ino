@@ -1,4 +1,4 @@
-//Example Code EP 1: Read DHT22 Show Display O'LED 0.96'
+//Example Code EP 2: Read DHT22 Show Display O'LED 0.96'
 // Summation Technology 
 
 #include <Wire.h>
@@ -16,8 +16,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 #define DHTPIN 4     // Digital pin connected to the DHT sensor
 
 // Uncomment the type of sensor in use:
-//#define DHTTYPE    DHT11     // DHT 11
-#define DHTTYPE    DHT22     // DHT 22 (AM2302)
+#define DHTTYPE    DHT11     // DHT 11
+//#define DHTTYPE    DHT22     // DHT 22 (AM2302)
 //#define DHTTYPE    DHT21     // DHT 21 (AM2301)
 
 DHT dht(DHTPIN, DHTTYPE);
@@ -72,4 +72,6 @@ void loop() {
   display.print(" %"); 
   
   display.display(); 
+  Serial.println(t);
+   Serial.println(h);
 }

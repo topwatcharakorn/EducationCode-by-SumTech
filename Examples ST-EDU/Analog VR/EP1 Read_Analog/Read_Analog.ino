@@ -1,4 +1,4 @@
-//Example Code EP 3: Analog Read Potentiometer
+//Example Code EP 1: Analog Read Potentiometer
 // Summation Technology 
 
 int analogPin = ; // กำหนดขา GPIO (Analog) 

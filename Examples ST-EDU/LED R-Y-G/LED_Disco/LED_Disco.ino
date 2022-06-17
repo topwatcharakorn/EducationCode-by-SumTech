@@ -1,4 +1,4 @@
-//Example Code EP 7: LED Disco
+//Example Code EP 1: LED Disco
 // Summation Technology 
 #define LED1 27
 #define LED2 25

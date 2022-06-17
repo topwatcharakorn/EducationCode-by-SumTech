@@ -1,7 +1,7 @@
-//Example Code EP 6: Show Display O'LED 0.96' "Hello World"
+//Example Code EP 1: Show Display O'LED 0.96' "Hello Sumtech"
 // Summation Technology 
 
-#include <Wire.h>
+#include <Wire.h>     
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
@@ -24,7 +24,7 @@ void setup() {
   display.setTextSize(1);
   display.setTextColor(WHITE);
   display.setCursor(0, 10);
-  display.println("Hello, world!");
+  display.println("Hello, Sumtech!");
   display.display(); 
 }
 

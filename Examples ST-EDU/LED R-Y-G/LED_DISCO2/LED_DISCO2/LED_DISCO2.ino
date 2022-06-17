@@ -1,6 +1,9 @@
-#define led1 26
-#define led2 18
-#define led3 19
+//Example Code EP 2: LED Disco2
+// Summation Technology 
+
+#define led1 27
+#define led2 25
+#define led3 32
 
 void setup() {
   pinMode(led1, OUTPUT);

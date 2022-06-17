@@ -1,10 +1,10 @@
-//Example Code EP 20:Read POTENTIOMETER Module
+//Example Code EP 4:Read POTENTIOMETER Module Show Display
 // Summation Technology
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_Sensor.h>
-#define POTENTIOMETER_PIN 34
+#define POTENTIOMETER_PIN 4
 
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
