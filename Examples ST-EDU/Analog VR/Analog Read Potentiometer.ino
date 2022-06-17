@@ -1,7 +1,7 @@
 //Example Code EP 1: Analog Read Potentiometer
 // Summation Technology 
 
-int analogPin = ; // กำหนดขา GPIO (Analog) 
+int analogPin = 34; // กำหนดขา GPIO (Analog) 
                   
 int VR = 0;  // กำหนดค่าตัวแปร VR=0
 
