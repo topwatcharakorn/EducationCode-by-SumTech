@@ -1,5 +1,5 @@
 //Example Code EP 2: Read DHT22 Show Display O'LED 0.96'
-// Summation Technology 
+// Summation Technology
 
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -13,7 +13,7 @@
 // Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
-#define DHTPIN 4     // Digital pin connected to the DHT sensor
+#define DHTPIN 27     // Digital pin connected to the DHT sensor
 
 // Uncomment the type of sensor in use:
 #define DHTTYPE    DHT11     // DHT 11
@@ -27,9 +27,9 @@ void setup() {
 
   dht.begin();
 
-  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
     Serial.println(F("SSD1306 allocation failed"));
-    for(;;);
+    for (;;);
   }
   delay(2000);
   display.clearDisplay();
@@ -47,13 +47,13 @@ void loop() {
   }
   // clear display
   display.clearDisplay();
-  
+
   // display temperature
   display.setTextSize(1);
-  display.setCursor(0,0);
+  display.setCursor(0, 0);
   display.print("Temperature: ");
   display.setTextSize(2);
-  display.setCursor(0,10);
+  display.setCursor(0, 10);
   display.print(t);
   display.print(" ");
   display.setTextSize(1);
@@ -61,7 +61,7 @@ void loop() {
   display.write(167);
   display.setTextSize(2);
   display.print("C");
-  
+
   // display humidity
   display.setTextSize(1);
   display.setCursor(0, 35);
@@ -69,9 +69,12 @@ void loop() {
   display.setTextSize(2);
   display.setCursor(0, 45);
   display.print(h);
-  display.print(" %"); 
-  
-  display.display(); 
-  Serial.println(t);
-   Serial.println(h);
+  display.print(" %");
+
+  display.display();
+  Serial.print("Humidity: ");
+  Serial.print(h);
+  Serial.print("%  Temperature: ");
+  Serial.print(t);
+  Serial.print("°C ");
 }
